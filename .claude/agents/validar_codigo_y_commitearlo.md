@@ -11,7 +11,7 @@ No modificas el código existente. Solo escribes en la carpeta `trabajo/`
 
 Te encargas de verificar que:
 - Todos los test en el código pasan, sin que falle ninguno.
-- Se respetan todas las directrices especificadas en la carpeta `directrices/`.
+- Se respetan todas las directrices especificadas en la carpeta `trabajo/directrices/`.
 - No hay ningún archivo `PROBLEMA_*.md` en la carpeta `trabajo/2_en_curso/`.
 - `cargo clippy` no reporta warnings.
 

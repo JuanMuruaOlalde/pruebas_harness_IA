@@ -63,9 +63,9 @@ Salvo que se indique otra cosa, para decisiones de diseño buscar inspiración p
 
 ## Para un repositorio de código
 
-Claude Code (el entorno agéntico de Claude para programación de sofware) tiene además un archivo especial donde indicarle directrices adiccionales particulares a tener en cuenta dentro de un determinado repositorio de código.
+Trabajando dentro de un repositorio de código, se dispone de un archivo especial donde indicar directrices generales a tener en cuenta dentro de ese repositorio de código.
 
-En Claude Code ese archivo de directrices se llama `CLAUDE.md`. En otros provedores puede llamarse de otras formas. En el estandard se llama `AGENTES.md`.
+En Claude Code ese archivo de directrices se llama `CLAUDE.md`. En otros provedores puede llamarse de otras formas. De forma estandard se llama `AGENTES.md`.
 
 ![Archivo CLAUDE.md en un repositorio de codigo](./imagenes/Archivo_CLAUDE_md_para_Claude_Code.png)
 
@@ -117,7 +117,36 @@ cargo test
 
 ```
 
-[Cómo Claude Code recuerda su proyecto](https://code.claude.com/docs/es/memory)
+> [Cómo Claude Code recuerda su proyecto](https://code.claude.com/docs/es/memory)
+
+
+Además de las directices generales de `CLAUDE.md`. En un repositorio de código, trabajando con Claude Code, es posible también definir salvaguardas y reglas fijas (más de obligado cumplimiento); estas se escriben en el archivo `.claude/settings.json`
+> [Archivos de configuración y precedencia -settings-](https://code.claude.com/docs/es/settings)
+
+Por ejemplo:
+```
+{
+  "permissions": {
+    "allow": [
+      "Bash(cargo test *)",
+      "Bash(cargo build *)",
+      "Bash(cargo fmt *)",
+      "Bash(cargo clippy *)",
+      "Bash(mv *)",
+      "Bash(git add *)"
+    ],
+    "ask": [
+      "Bash(git commit *)"
+    ],
+    "deny": [
+      "Bash(git push *)",
+      "Edit(/documentacion/**)",
+      "Edit(/directrices/**)"
+    ]
+  },
+  "env": { "CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH": "1" }
+}
+```
 
 ## Para un agente concreto
 

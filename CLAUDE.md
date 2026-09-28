@@ -24,10 +24,12 @@ cargo test
 
 ## Arquitectura
 
-Allá donde sea posible:
+Allá donde sea conveniente:
 - Implementar una arquitectura Hexagonal (Ports&Adapters).
 - Seguir los principios SOLID.
 - Seguir la metodología DDD (Domain Driven Design). El glosario de dominio está en el archivo `src/glosario_de_dominio.md`.
+
+### Mapa de la arquitectura actual
 
 
 ## Flujo de trabajo
@@ -37,7 +39,7 @@ Allá donde sea posible:
 
 ## Límites a respetar
 
-No modificar la carpeta `directrices/`. Sí leer su contenido.
+No modificar la carpeta `trabajo/directrices/`. Sí leer su contenido.
 
 No modificar la carpeta `documentacion/`. No leer su contenido; excepto cuando sea necesario para hacer un commit.
 

@@ -4,7 +4,7 @@ Nomenclatura a emplear. En caso de preferir otro nombre para algo contemplado aq
 
 ## De uso general
 
-- `edificio`.
-- `planta`. Siendo 0 la planta principal por donde se accede al edificio principalmente; con números positivos por encima de ella y números negativos por debajo de ella.
-- `ascensor`.
-- `usuario`.
+- **edificio**.
+- **planta**. Siendo 0 la planta principal por donde se accede al edificio principalmente; con números positivos por encima de ella y números negativos por debajo de ella.
+- **ascensor**.
+- **usuario**.
