@@ -1,2 +1,2 @@
-- [Supuestos de dominio aceptados](supuestos-de-dominio-aceptados.md) — plantas -2..7, arranque en 0, movimiento instantáneo; IdentificadorDeAscensor es provisional
+- [Supuestos de dominio aceptados](supuestos-de-dominio-aceptados.md) — plantas -2..7, movimiento instantáneo, libre/ocupado, reglas del control de tráfico; términos provisionales
 - [Rol en el bucle automático](rol-en-el-bucle-automatico.md) — paso de revisión tras programar_codigo; qué verificar, qué entregar y qué no hacer (commits)
