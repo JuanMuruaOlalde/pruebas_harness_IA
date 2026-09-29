@@ -42,3 +42,5 @@ Tanto si vacías la cola como si te detienes por cualquier otra causa, escribe u
 - las signaturas de los tests añadidos, 
 - el hash y el mensaje del commit.
 En caso de haber tenido algún problema, incluye descripción del mismo al final del archivo.
+
+Después de haber escrito el archivo, realiza un commit en el sistema de gestión de versiones.
