@@ -1,6 +1,6 @@
 ---
 name: supuestos-de-dominio-aceptados
-description: Supuestos del simulador de ascensores aceptados por Juan (plantas -2..7, arranque en 0, movimiento instantáneo, libre/ocupado, reglas del control de tráfico) y términos provisionales fuera del glosario
+description: Supuestos del simulador de ascensores aceptados por Juan (plantas -2..7, arranque en 0, movimiento instantáneo, libre/ocupado, reglas del control de tráfico, interfaz sin destino) y estado del glosario
 metadata:
   type: project
 ---
@@ -15,7 +15,11 @@ Supuestos añadidos el 2026-09-29 con "Un control de trafico basico":
 - Cualquier error del edificio implica que no se mueve, ocupa ni registra nada. El caso de fallo al registrar en el histórico no está decidido: hay un pendiente abierto.
 - Histórico permanente = archivo en el que nunca se borran movimientos. "Último mes" = 30 días con ambos límites incluidos; franjas de una hora. La hora es UTC; hay un pendiente abierto sobre usar la hora local.
 
-Términos que NO están en `src/glosario_de_dominio.md` y son provisionales: identificador de ascensor, control de tráfico, libre, ocupado, llamada, botón de llamada, histórico, movimiento, planta de destino, motivo del movimiento, reubicación, fecha y hora, franja horaria, reloj.
+Supuestos añadidos el 2026-09-29 con "Interfaz de usuario para manejar el simulador" (egui/eframe):
+- La interfaz solo muestra plantas y ascensores y permite pulsar el botón de llamada; no deja elegir planta de destino. Tras 3 llamadas no queda ningún ascensor libre y se muestra un aviso. Juan lo acepta así por ahora: no es un fallo a corregir al refactorizar.
+- El histórico real va a `historico_de_movimientos.txt` (ruta relativa al directorio de ejecución), ignorado por git.
+
+Glosario: a fecha del 2026-09-29, `src/glosario_de_dominio.md` ya incluye identificador de ascensor, control de tráfico, libre, ocupado, llamada, botón de llamada, planta de origen y de destino, reubicación, optimización, movimiento, motivo, histórico, fecha y hora, reloj, franja horaria y último mes. Los términos de la interfaz (panel, ventana, aviso) no son de dominio y no están en el glosario.
 
 **Why:** el glosario obliga a acordar con Juan cualquier término nuevo antes de usarlo. Los supuestos son decisiones de alcance, no limitaciones técnicas.
-**How to apply:** al refactorizar, no introducir tiempos ni estados nuevos (sería funcionalidad nueva). No renombrar ni ampliar términos de dominio sin acuerdo; si hace falta, dejarlo como pendiente en `trabajo/0_funcionalidades_y_tareas_pendientes/`. Comprobar primero si el glosario ya incorpora el término, porque este recuerdo puede estar desfasado.
+**How to apply:** al refactorizar, no introducir tiempos, estados ni destinos nuevos (sería funcionalidad nueva). No renombrar ni ampliar términos de dominio sin acuerdo; si hace falta, dejarlo como pendiente en `trabajo/0_funcionalidades_y_tareas_pendientes/`. Releer el glosario antes de fiarse de esta lista.
