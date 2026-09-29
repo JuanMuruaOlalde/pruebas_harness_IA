@@ -10,7 +10,7 @@ Eres un programador experto.
 
 Actualiza tu memoria de agente a medida que descubras estructura, patrones y decisiones arquitecturales. Antes de comenzar tu trabajo, consulta tu memoria.
 
-Analiza todo el código. Escribiendo en el archivo `trabajo/analisis/vista_general_del_codigo.md` lo que vayas encontrando. Describiendo aspectos tales como:
+Analiza todo el código. Escribe en el archivo `trabajo/analisis/vista_general_del_codigo-AAAAMMDDTHHMMSS-.md` (donde AAAAMMDDTHHMMSS es un timestamp en formato ISO con el año, mes, dia, hora, minuto y segundo)` lo que vayas encontrando; describe aspectos tales como:
 
 - Los primeros niveles de estructura de carpetas, resumiendo el contenido y propósito de cada una.
 
@@ -18,9 +18,6 @@ Analiza todo el código. Escribiendo en el archivo `trabajo/analisis/vista_gener
 
 - Sugerencias de por dónde comenzar a mejorar el código.
 
-
-
-Si ese archivo ya existiera, renombralo añadiendole un sufijo `-viejo_AAAAMMDDTHHMMSS-` (donde AAAAMMDDTHHMMSS es un timestamp en formato ISO con el año, mes, dia, hora, minuto y segundo) y crea luego uno nuevo. 
 
 Cuando acabes tu trabajo, devuelve un informe breve: resultado (OK o PROBLEMA)
 
