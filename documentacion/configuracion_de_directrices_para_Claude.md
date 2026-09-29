@@ -2,11 +2,11 @@
 
 El comportamiento de cualquier IA está fuertemente mediatizado por las directrices que se le marquen al modelo que se esté utilizando. Son estas directrices las que realmente marcan la "personalidad" de la IA cuando trabaja.
 
-Es importante tener siempre presente que **una IA no es determinista**. *En cualquier momento puede "pensar" de forma distinta a como se le ha indicado en las directrices*. Las directrices son simplemente recomendaciones, no son de obligado cumplimiento.
+Tener siempre presente que **una IA es no-determinista**. *En cualquier momento puede "decidir" (inferir) que conviene hacer algo de forma distinta a como se le ha indicado en las directrices*. Las directrices son meras instrucciones que la IA acepta como guia, no como órdenes de obligado cumplimiento.
 
-> Este 'no determinismo' obliga a establecer siempre un diálogo fluido persona<->IA durante cualquier sesión. Para aclarar malentendidos e ir acordando/validando/corrigiendo el rumbo durante toda la sesión de trabajo.
+> Este 'no determinismo' obliga a establecer siempre un diálogo fluido persona⇆IA durante cualquier sesión. Para ir aclarando malentendidos e ir acordando/validando/corrigiendo el rumbo durante toda la sesión de trabajo.
 
-De todas formas, si se necesita un comportamiento deteminado en ciertas circunstancias concretas.También suele haber posibilidad de establecer algunas configuraciones fijas (por ejemplo [el archivo settings.json de Claude Code](https://code.claude.com/docs/es/settings)). Todo aquello que deba ser determinista, hay que indicarlo expresamente en esas configuraciones/salvaguardas que sí son de obligado cumplimiento.
+De todas formas, cuando realmente se necesita un comportamiento deteminado en ciertas circunstancias concretas. Suele haber posibilidad de establecer algunas salvaguardas y reglas fijas "de obligado cumplimiento" (con mecanismos como, por ejemplo, [el archivo settings.json de Claude Code](https://code.claude.com/docs/es/settings)).
 
 
 # System Prompts
@@ -15,7 +15,7 @@ Los `System Prompts` son aquellas directrices que **se cargan siempre al inicio*
 
 ##  Directrices del proveedor
 
-Cada proveedor incorpora unas directrices "de fábrica" a sus modelos.
+Cada proveedor incorpora unas directrices y salvaguardas generales a sus modelos.
 
 [Anthropic Usage Policiy](https://www.anthropic.com/legal/aup)
 
@@ -23,13 +23,13 @@ Cada proveedor incorpora unas directrices "de fábrica" a sus modelos.
 
 ## Nuestras directrices generales
 
-Suele haber una especie de `System Prompt` maestro configurable para nuestra cuenta.
+Nosotros (o nuesta empresa u organización) también podemos incorporar unas instrucciones generales en nuestra cuenta.
 
 ![Ubicación de los ajustes generales en Claude](./imagenes/Ubicacion_de_los_ajustes_generales.png)
 
 ![Ajuste de las directrices generales para Claude](./imagenes/Ajuste_de_las_directrices_generales.png)
 
-Por ejemplo:
+Una muestra:
 ```
 Usa un tono general de charla entre colegas de profesión especialistas en el tema que se está tratando. Hablando siempre con un espíritu científico-técnico.
 
@@ -46,7 +46,7 @@ No seas zalamero. Evita expresiones  tales como "¡Pregunta excelente y muy prá
 
 ## Para un proyecto concreto
 
-En las sesiones sueltas se aplican solo las directrices generales. Pero si abrimos una sesión dentro de un proyecto, se suman a las generales las directrices particulares de ese proyecto.
+En las sesiones sueltas se aplican solo las directrices generales del provedor y de nuestra cuenta. Pero si abrimos una sesión dentro de un proyecto, se suman a las generales las directrices particulares de ese proyecto.
 
 ![Ubicación de los ajustes particulares de un proyecto](./imagenes/Ubicacion_de_los_ajustes_particulares_de_un_proyecto.png)
 
@@ -63,13 +63,15 @@ Salvo que se indique otra cosa, para decisiones de diseño buscar inspiración p
 
 ## Para un repositorio de código
 
-Trabajando dentro de un repositorio de código, se dispone de un archivo especial donde indicar directrices generales a tener en cuenta dentro de ese repositorio de código.
+Cuando se está trabajando dentro de un repositorio de código con Claude Code, se dispone de más posibilidades de configuración.
 
-En Claude Code ese archivo de directrices se llama `CLAUDE.md`. En otros provedores puede llamarse de otras formas. De forma estandard se llama `AGENTES.md`.
+Por ejemplo, se dispone de un archivo especial donde detallar directrices, información, restricciones, formas de trabajar,... a tener en cuenta dentro de ese repositorio de código.
+
+En Claude Code ese archivo se llama `CLAUDE.md`. En otros provedores suele llamarse de otras formas. De forma estandard se llama `AGENTES.md`.
 
 ![Archivo CLAUDE.md en un repositorio de codigo](./imagenes/Archivo_CLAUDE_md_para_Claude_Code.png)
 
-Por ejemplo:
+Una muestra:
 ```
 # CLAUDE.md
 
@@ -117,13 +119,12 @@ cargo test
 
 ```
 
-> [Cómo Claude Code recuerda su proyecto](https://code.claude.com/docs/es/memory)
+> Para más información mirar la documentación: [Cómo Claude Code recuerda su proyecto](https://code.claude.com/docs/es/memory)
 
 
-Además de las directices generales de `CLAUDE.md`. En un repositorio de código, trabajando con Claude Code, es posible también definir salvaguardas y reglas fijas (más de obligado cumplimiento); estas se escriben en el archivo `.claude/settings.json`
-> [Archivos de configuración y precedencia -settings-](https://code.claude.com/docs/es/settings)
+Además del archivo `CLAUDE.md`. En un repositorio de código, trabajando con Claude Code, existe el archivo `.claude/settings.json`. En ese archivo se explicitgan salvaguardas y reglas fijas de obligado cumplimiento.
 
-Por ejemplo:
+Una muestra:
 ```
 {
   "permissions": {
@@ -148,21 +149,22 @@ Por ejemplo:
 }
 ```
 
+> Para más información mirar la documentación: [Archivos de configuración y precedencia -settings-](https://code.claude.com/docs/es/settings)
+
+
 ## Para un agente concreto
+
+Un agente es una sesión auxiliar autónoma que se puede lanzar para realizar un trabajo concreto y devolver unos resultados concretos.
 
 Las directrices que rigen el comportamiento de un agente se escriben igual que cualquier otra directriz o prompt: en lenguaje natural.
 
-La única diferencia es que:
+Con algunas peculiaridades:
 - Cada agente se define dentro de su propio archivo .md
 - Ese archivo .md llevar una cabecera con cierta información estructurada (`frontmatter YAML`), información tal como: **nombre**, **descripción**, **herramientas** que puede utilizar, **modelo** de IA que usará como motor de inferencia, etc.
 - El archivo ha de estar guardado en una cierta carpeta dentro del repositorio: `~/.claude/agents/`
 
-[Crear subagentes personalizados](https://code.claude.com/docs/es/sub-agents#quickstart-create-your-first-subagent)
 
-[Referencia de campos en la cabecera frontmatter](https://code.claude.com/docs/es/sub-agents#supported-frontmatter-fields)
-
-
-Por ejemplo:
+Una muestra:
 ```
 ---
 name: revisar_y_sugerir_mejoras
@@ -179,3 +181,13 @@ No modifiques el código. Solo sugiere mejoras.
 
 ```
 
+> Para más información mirar la documentación: 
+> 
+> [Crear subagentes personalizados](https://code.claude.com/docs/es/sub-agents#quickstart-create-your-first-subagent)
+>
+> [Referencia de campos en la cabecera frontmatter](https://code.claude.com/docs/es/sub-agents#supported-frontmatter-fields)
+
+> nota: Los agentes pueden activarse manualmente con una sentencia tal como "usa el subagente `nombredelagente`" o con la expresión `@nombredelagente`; o pueden activarse automáticamente cuando otro agente decida (infiera) que le puede ser útil y lo lance como subagente.
+>
+> aviso: Prestar especial atención a la redacción de los campos `name` y `description`. Lo escrito en ellos mediatiza cuándo y en qué circunstancias Claude puede decidir(inferir) que le conviene usar el agente.
+ 
