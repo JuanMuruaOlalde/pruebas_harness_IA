@@ -6,7 +6,9 @@
       "Bash(cargo fmt *)",
       "Bash(cargo clippy *)",
       "Bash(mv *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(sed -i '1d' trabajo/2_en_curso/lista_de_tests.txt)",
+      "Edit(/trabajo/2_en_curso/lista_de_tests.txt)"
     ],
     "ask": [
       "Bash(git commit *)"
@@ -14,7 +16,7 @@
     "deny": [
       "Bash(git push *)",
       "Edit(/documentacion/**)",
-      "Edit(/directrices/**)"
+      "Edit(/trabajo/directrices/**)"
     ]
   },
   "env": { "CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH": "1" }
