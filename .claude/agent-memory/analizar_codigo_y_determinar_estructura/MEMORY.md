@@ -1,0 +1,3 @@
+- [Contexto y fuentes de decisiones](contexto-y-fuentes-de-decisiones.md): el simulador es el vehículo del experimento; decisiones aceptadas en 3_historico y en la memoria del revisor
+- [Forma de trabajar del análisis](forma-de-trabajar-del-analisis.md): salida, carpetas vetadas (no hacer ls recursivo de trabajo/), comprobaciones cargo seguras
+- [Línea base del análisis 2026-09-29](linea-base-analisis-2026-09-29.md): 6 hallazgos principales en el commit 0b8783a, para medir el avance
